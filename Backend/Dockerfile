@@ -2,13 +2,13 @@
 FROM maven as maven
 
 # copy the project files
-COPY ./Backend/pom.xml ./pom.xml
+COPY ./pom.xml ./pom.xml
 
 # build all dependencies
 RUN mvn dependency:go-offline -B
 
 # copy your other files
-COPY ./Backend/src ./src
+COPY ./src ./src
 
 # build for release
 RUN mvn package
